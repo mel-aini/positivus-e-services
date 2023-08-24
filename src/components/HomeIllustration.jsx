@@ -9,10 +9,10 @@ import { ReactComponent as Frame } from '../assets/Frame.svg';
 
 function HomeIllustration( {mainColor}) {
 	return (
-		<div className="relative h-[230px] mb-[130px] mt-[50px]">
-			<Circle className="absolute bottom-[-10px] left-[-40px] z-[-1]" />
-			<Circle className="absolute bottom-[-30px] left-[-55px] z-[-1]" />
-			<Circle className="absolute bottom-[-50px] left-[-70px] z-[-1]" />
+		<div className="relative h-[230px] mb-[130px] mt-[50px] xl:mr-[100px] lg:scale-125 2xl:scale-150">
+			<Circle className="absolute top-[50px] left-[-40px] z-[-1]" />
+			<Circle className="absolute top-[75px] left-[-55px] z-[-1]" />
+			<Circle className="absolute top-[100px] left-[-70px] z-[-1]" />
 			<Icon1 className="absolute top-[-2px] right-[-60px]" />
 			<Icon2 className="absolute top-[60px] right-[-55px]" />
 			<Icon3 className="absolute top-[120px] right-[-45px]" />
@@ -22,7 +22,7 @@ function HomeIllustration( {mainColor}) {
 			<Ellipse className={`absolute top-[238px] right-[40px] w-[15px] fill-black`} style={{ fill: mainColor }} />
 			<Frame className="absolute top-[186px] left-[-53px]" />
 			<Frame className="absolute top-[230px] left-[83px] w-[30px] rotate-45" />
-			<MainIcon className="z-10" />
+			<MainIcon className="w-[206px] h-[222px] z-10" />
 		</div>
 	)
 }
