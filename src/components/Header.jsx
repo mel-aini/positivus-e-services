@@ -14,7 +14,7 @@ function Header() {
 	});
 
 	return (
-		<div className="w-[90%] lg:w-[70%] mx-auto flex justify-between items-center py-[10px] lg:py-[50px]">
+		<div className="w-[90%] lg:w-[80%] mx-auto flex justify-between items-center py-[10px] lg:py-[50px]">
 			{/* <img src={ BlackLogo } alt="Your SVG" /> */}
 			<Logo className='w-[144px]'/>
 			{!list && <HiOutlineMenu className="text-3xl"/> }

@@ -1,5 +1,6 @@
 import HomeIllustration from './HomeIllustration';
 import { useEffect, useState } from 'react';
+import Brands from './Brands'
 
 function Home( {mainColor} ) {
 	const [smallW, setSmallW] = useState(true);
@@ -11,8 +12,8 @@ function Home( {mainColor} ) {
 	});
 
 	return (
-		<div className='w-[90%] lg:w-[70%] mx-auto py-[20px] flex flex-col justify-center items-center'>
-			<div className="flex justify-center xl:justify-between items-center lg:h-[80vh]">
+		<div className='py-[20px] flex flex-col justify-center items-center'>
+			<div className="w-[90%] lg:w-[80%] mx-auto flex justify-center xl:justify-between items-center lg:h-[80vh]">
 				<div className='py-[20px] flex flex-col justify-center xl:items-start items-center xl:w-[50%] md:max-xl:text-center'>
 					<p className="text-4xl 2xl:lg:leading-[2.5] lg:text-5xl 2xl:text-7xl font-medium leading-normal lg:leading-[1.3]">Navigating the digital landscape for success</p>
 					{smallW && <HomeIllustration mainColor={ mainColor }/>}
@@ -21,14 +22,7 @@ function Home( {mainColor} ) {
 				</div>
 				{!smallW && <HomeIllustration mainColor={ mainColor }/>}
 			</div>
-			<div>
-				<ul>
-					<li>item 1</li>
-					<li>item 1</li>
-					<li>item 1</li>
-				</ul>
-				{/* // logos */}
-			</div>
+			<Brands/>
 		</div>
 	);
 }
