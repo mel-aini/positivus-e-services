@@ -1,10 +1,14 @@
 import { HiOutlineMenu } from "react-icons/hi";
 import { ReactComponent as Logo } from '../assets/PositivusBlack.svg';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 
 function Header() {
 	const [list, setList] = useState(true);
+	useEffect(() => {
+		window.innerWidth >= 1200 ? setList(true) : setList(false);
+	}, []);
+
 	window.addEventListener('resize', () => {
 		window.innerWidth >= 1200 ? setList(true) : setList(false);
 	});

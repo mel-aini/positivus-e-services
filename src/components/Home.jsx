@@ -1,8 +1,11 @@
 import HomeIllustration from './HomeIllustration';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 function Home( {mainColor} ) {
 	const [smallW, setSmallW] = useState(true);
+	useEffect(() => {
+		window.innerWidth >= 1280 ? setSmallW(false) : setSmallW(true)
+	}, []);
 	window.addEventListener('resize', () => {
 		window.innerWidth >= 1280 ? setSmallW(false) : setSmallW(true);
 	});
