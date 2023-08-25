@@ -7,7 +7,7 @@ import { ReactComponent as Logo6 } from '../assets/brands/logo-5.svg';
 import { useEffect, useRef, useState } from 'react';
 
 function Brands() {
-	const [leftP, setLeftP] = useState('0px');
+	const [leftP, setLeftP] = useState(0);
 	const child = useRef();
 	const parrent = useRef();
 
@@ -15,19 +15,19 @@ function Brands() {
 		let	x1 = parseInt(getComputedStyle(child.current).getPropertyValue('left'));
 		const id = setInterval(() => {
 			if (x1 === -child.current.offsetWidth) {
-				setLeftP(parrent.current.offsetWidth + 'px');
+				setLeftP(parrent.current.offsetWidth);
 				x1 = parrent.current.offsetWidth;
 			}
 			else {
 				x1--;
-				setLeftP(x1 + 'px');
+				setLeftP(x1);
 			}
 		}, 10);
 	}, []);
 	
 	return (
-		<div ref={ parrent } className="flex overflow-hidden relative w-[80%] py-[50px]">
-			<div  ref={ child } className="flex overflow-hidden absolute" style={{left: leftP}}>
+		<div ref={ parrent } className="flex overflow-hidden relative w-full sm:w-[80%] py-[50px]">
+			<div  ref={ child } className="flex overflow-hidden absolute top-0" style={{left: leftP}}>
 				<Logo1 className="mx-[30px] lg:mx-[80px]"/>
 				<Logo2 className="mx-[30px] lg:mx-[80px]"/>
 				<Logo3 className="mx-[30px] lg:mx-[80px]"/>
