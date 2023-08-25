@@ -26,7 +26,7 @@ function Brands() {
 	}, []);
 	
 	return (
-		<div ref={ parrent } className="flex overflow-hidden relative w-full sm:w-[80%] py-[50px]">
+		<div ref={ parrent } className="flex overflow-hidden relative w-full sm:w-[90%] py-[50px]">
 			<div  ref={ child } className="flex overflow-hidden absolute top-0" style={{left: leftP}}>
 				<Logo1 className="mx-[30px] lg:mx-[80px]"/>
 				<Logo2 className="mx-[30px] lg:mx-[80px]"/>

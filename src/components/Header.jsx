@@ -17,7 +17,7 @@ function Header() {
 	}, [showSideBar]);
 
 	return (
-		<div className="w-[90%] lg:w-[80%] mx-auto flex justify-between items-center py-[10px] sm:py-[20px] lg:py-[50px]">
+		<div className="w-[90%] lg:w-[90%] mx-auto flex justify-between items-center py-[10px] sm:py-[20px] lg:py-[50px]">
 			{/* <img src={ BlackLogo } alt="Your SVG" /> */}
 			<Logo className='w-[144px]' />
 			{showSideBar && <HiOutlineMenu className="text-3xl cursor-pointer" onClick={() => { setVisibleNav('0px'); setToggleSideBar(true); }} />}

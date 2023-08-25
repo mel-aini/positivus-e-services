@@ -14,9 +14,9 @@ function Services() {
 
 	return (
 		<div className="w-[90%] mx-auto flex flex-col justify-center items-center">
-			<div className="w-full flex flex-col justify-center items-center">
+			<div className="w-full flex flex-col gap-[40px] lg:flex-row justify-center items-center py-[50px]">
 				<h1 className="font-bold text-5xl py-2 px-3 rounded-xl" style={{backgroundColor: mainColor}}>Services</h1>
-				<p className="w-full text-center py-12">At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:</p>
+				<p className="w-full text-center lg:text-start">At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:</p>
 			</div>
 			<ServicesItems />
 			<div className="w-full bg-gray-200 h-[400px] flex justify-between gap-12 py-10 px-12 my-[80px] rounded-[45px]">
