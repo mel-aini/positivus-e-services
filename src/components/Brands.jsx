@@ -28,12 +28,12 @@ function Brands() {
 	return (
 		<div ref={ parrent } className="flex overflow-hidden relative w-full sm:w-[90%] py-[50px]">
 			<div  ref={ child } className="flex overflow-hidden absolute top-0" style={{left: leftP}}>
-				<Logo1 className="mx-[30px] lg:mx-[80px]"/>
-				<Logo2 className="mx-[30px] lg:mx-[80px]"/>
-				<Logo3 className="mx-[30px] lg:mx-[80px]"/>
-				<Logo4 className="mx-[30px] lg:mx-[80px]"/>
-				<Logo5 className="mx-[30px] lg:mx-[80px]"/>
-				<Logo6 className="mx-[30px] lg:mx-[80px]"/>
+				<Logo1 className="mx-[30px] lg:mx-[80px] grayscale"/>
+				<Logo2 className="mx-[30px] lg:mx-[80px] grayscale"/>
+				<Logo3 className="mx-[30px] lg:mx-[80px] grayscale"/>
+				<Logo4 className="mx-[30px] lg:mx-[80px] grayscale"/>
+				<Logo5 className="mx-[30px] lg:mx-[80px] grayscale"/>
+				<Logo6 className="mx-[30px] lg:mx-[80px] grayscale"/>
 			</div>
 		</div>
 	);

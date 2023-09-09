@@ -37,7 +37,7 @@ function ServicesItems() {
 	];
 
 	return (
-		<div className="grid w-full gap-10 grid-cols-1 md:grid-cols-2 xl:grid-cols-3">
+		<div className="grid w-full gap-10 grid-cols-1 md:grid-cols-2 2xl:grid-cols-3">
 			{services.map(({ title1, title2, src, bgColor, hBgColor, hColor, bBgColor, bColor }, index) => {
 				// console.log(src);
 				return (
