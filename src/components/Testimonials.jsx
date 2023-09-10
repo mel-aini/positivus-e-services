@@ -1,15 +1,20 @@
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
+import { ReactComponent as Frame } from '../assets/Frame.svg';
 
-function Comment({ elem, mainColor, index }) {
+let cRef;
+
+function Comment({ elem, mainColor, darkColor }) {
+    cRef = useRef();
+
     return (
-        <div className="comment text-white mb-[70px] min-w-[250px] sm:min-w-[400px] lg:min-w-[600px]">
+        <div ref={ cRef } className="comment text-white mb-[80px] min-w-[250px] sm:min-w-[400px] lg:min-w-[600px]">
             <div style={{border: `1px solid ${mainColor}`}} className="p-5 sm:p-10 rounded-3xl relative">{ elem.comment }
-                <div className="absolute bottom-[-15px] left-[10%] w-[30px] h-[30px] rotate-[45deg] border-[1px] border-solid bg-black" style={{borderColor: `transparent ${mainColor} ${mainColor} transparent`}}>
+                <div className="absolute bottom-[-15px] left-[10%] w-[30px] h-[30px] rotate-[45deg] border-[1px] border-solid" style={{borderColor: `transparent ${mainColor} ${mainColor} transparent`, backgroundColor: 'black'}}>
                     <div className="relative w-full h-full rotate-[-45deg]">
-                        <div className="absolute bottom-[-60px] left-[50%] min-w-[250px]">
+                        <div className="absolute bottom-[-70px] left-[50%] min-w-[250px]">
                             <h1 className="text-sm font-bold" style={{color: mainColor}}>{ elem.client }</h1>
-                            <h2 className="text-sm">{ elem.role } | {index} </h2>
+                            <h2 className="text-sm">{ elem.role }</h2>
                         </div>
                     </div>
                 </div>
@@ -18,20 +23,42 @@ function Comment({ elem, mainColor, index }) {
     )
 }
 
-function Testimonials({ mainColor, grayColor}) {
+function Testimonials({ mainColor, grayColor, darkColor}) {
     const [trans, setTrans] = useState(0);
     const contRef = useRef();
+    const circlesRef = useRef();
     const parentRef = useRef();
-    const [index, setIndex] = useState(1);
-    useEffect(() => {
-        const comment = window.getComputedStyle(document.querySelector('.comment'));
-        const parent = window.getComputedStyle(parentRef.current);
-        const parentWidth = parseFloat(parent.getPropertyValue('width')) - parseFloat(parent.getPropertyValue('padding-left')) - parseFloat(parent.getPropertyValue('padding-right'));
-        const commentWidth = parseFloat(comment.getPropertyValue('width'));
-        setTrans(((parentWidth / 2) - (commentWidth / 2) * index) + 'px');
-    }, [])
+    const [index, setIndex] = useState(2);
+    const indexRef = useRef(index);
+    const [leftArr, setLeftArr] = useState(1);
+    const [rightArr, setRightArr] = useState(1);
 
-    const commentTxt = 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Sunt, harum? Ratione ab error perspiciatis dolore assumenda at sequi? Voluptate facilis et vel. Aspernatur debitis dolores ducimus sit! Quae, dignissimos saepe! Voluptate facilis et vel. Aspernatur debitis dolores ducimus sit! Quae, dignissimos saepe!';
+    const centerlize = () => {
+        const comment = window.getComputedStyle(document.querySelector('.comment'));
+        let parent;
+        if (parentRef) parent = window.getComputedStyle(parentRef.current);
+        const parentWidth = parseFloat(parent.getPropertyValue('width')) - (parseFloat(parent.getPropertyValue('padding-left')) * 2);
+        const commentWidth = parseFloat(comment.getPropertyValue('width'));
+        const incr = (cRef.current.clientWidth + 50) * indexRef.current;
+        setTrans(((parentWidth / 2) - (commentWidth / 2) - incr) + 'px');
+    }
+
+    useEffect(() => {
+        window.addEventListener('resize', centerlize);
+        centerlize();
+    }, []);
+
+    useEffect(() => {
+        let allChilds = [...circlesRef.current.children];
+        allChilds.forEach((element) => {
+            element.style.fill = 'white';
+        });
+        allChilds[index].style.fill = mainColor;
+        index == comments.length - 1 ? setRightArr(0.5) : setRightArr(1);
+        index == 0 ? setLeftArr(0.5) : setLeftArr(1);
+    }, [index]);
+
+    const commentTxt = '"We have been working with Positivus for the past year and have seen a significant increase in website traffic and leads as a result of their efforts. The team is professional, responsive, and truly cares about the success of our business. We highly recommend Positivus to any company looking to grow their online presence."';
     const comments = [
         {client: 'John Smith', role: 'Marketing Director at XYZ Corp', comment: commentTxt},
         {client: 'John Smith', role: 'Marketing Director at XYZ Corp', comment: commentTxt},
@@ -41,16 +68,20 @@ function Testimonials({ mainColor, grayColor}) {
     ];
 
     const forward = () => {
-        const width = parseFloat(contRef.current.getBoundingClientRect().width);
-        console.log(width);
-        const incr = width / comments.length;
-        setTrans((parseFloat(trans) - incr) + 'px');
+        if (index < comments.length - 1) {
+            const incr = cRef.current.clientWidth + 50;
+            setTrans((parseFloat(trans) - incr) + 'px');
+            setIndex(index + 1);
+            indexRef.current = index + 1;
+        }
     }
     const backward = () => {
-        // const childWidth = childRef.current.getBoundingClientRect().width;
-        const width = parseFloat(contRef.current.getBoundingClientRect().width);
-        const incr = width / comments.length;
-        setTrans((parseFloat(trans) + incr) + 'px');
+        if (index > 0) {
+            const incr = cRef.current.clientWidth + 50;
+            setIndex(index - 1);
+            indexRef.current = index - 1;
+            setTrans((parseFloat(trans) + incr) + 'px');
+        }
     }
 
     return (
@@ -59,24 +90,24 @@ function Testimonials({ mainColor, grayColor}) {
 				<h1 className="font-bold text-5xl py-2 px-3 rounded-xl" style={{backgroundColor: mainColor}}>Testimonials</h1>
 				<p className="w-full text-center lg:text-start">At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:</p>
 			</div>
-            <div ref={parentRef} className="bg-black w-full flex flex-col gap-10 p-5 rounded-[45px] overflow-hidden">
-                <div ref={contRef} className="flex flex-nowrap gap-[50px] duration-300" style={{transform: `translateX(${0})`}}>
+            <div ref={ parentRef } style={{backgroundColor: 'black'}} className="w-full flex flex-col gap-14 sm:gap-20 pt-10 pb-5 sm:pt-[100px] rounded-[45px] overflow-hidden">
+                <div ref={ contRef } className="contRef flex flex-nowrap gap-[50px] duration-500 ease-out" style={{transform: `translateX(${trans})`}}>
                     { comments.map((elem, index) => {
                         return (
-                            <Comment elem={ elem } mainColor={ mainColor } index={index} key={ index }/>
+                            <Comment elem={ elem } mainColor={ mainColor } darkColor={darkColor} key={ index }/>
                         )
                     })}
                 </div>
-                <div className="arrows flex justify-between items-center w-[90%]">
-                    <FaArrowLeft className="text-white" onClick={backward}/>
-                    <div className="flex gap-1">
-                        <span className="w-[15px] h-[15px] bg-white"></span>
-                        <span className="w-[15px] h-[15px] bg-white"></span>
-                        <span className="w-[15px] h-[15px] bg-white"></span>
-                        <span className="w-[15px] h-[15px] bg-white"></span>
-                        <span className="w-[15px] h-[15px] bg-white"></span>
+                <div className="arrows flex justify-between items-center w-[90%] sm:w-[400px] lg:w-[600px] mx-auto">
+                    <FaArrowLeft style={{opacity: leftArr}} className="text-white cursor-pointer" onClick={backward}/>
+                    <div ref={circlesRef} className="flex gap-2">
+                        <Frame className="w-[16px] rotate-45 duration-500" />
+                        <Frame className="w-[16px] rotate-45 duration-500" />
+                        <Frame className="w-[16px] rotate-45 duration-500" />
+                        <Frame className="w-[16px] rotate-45 duration-500" />
+                        <Frame className="w-[16px] rotate-45 duration-500" />
                     </div>
-                    <FaArrowLeft className="text-white rotate-[180deg]" onClick={forward}/>
+                    <FaArrowLeft style={{opacity: rightArr}} className="text-white rotate-[180deg] cursor-pointer" onClick={forward}/>
                 </div>
             </div>
 		</div>

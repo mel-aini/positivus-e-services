@@ -21,8 +21,8 @@ function HomeIllustration( {mainColor}) {
 				<Ellipse className="absolute top-[27px] left-[-50px] fill-[black]" />
 				<Ellipse className='absolute top-[50px] left-[-20px] w-[25px]' style={{ fill: mainColor }} />
 				<Ellipse className={`absolute top-[238px] right-[40px] w-[15px] fill-black`} style={{ fill: mainColor }} />
-				<Frame className="absolute top-[186px] left-[-53px]" />
-				<Frame className="absolute top-[230px] left-[83px] w-[30px] rotate-45" />
+				<Frame className="absolute top-[186px] left-[-53px] fill-black" />
+				<Frame className="absolute top-[230px] left-[83px] w-[30px] rotate-45 fill-black" />
 				<MainIcon className="w-[206px] h-[222px] z-10" />
 			</div>
 		</div>

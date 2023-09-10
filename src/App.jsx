@@ -10,6 +10,7 @@ import Testimonials from './components/Testimonials';
 
 function App() {
 	const mainColor = '#B9FF66';
+	const darkColor = '#191A23';
 	const grayColor = '#EEEEEE';
 	
 	return (
@@ -18,10 +19,10 @@ function App() {
 			<Header mainColor={ mainColor }/>
 			<Home mainColor={ mainColor }/>
 			<Services mainColor={ mainColor }/>
-			<CaseStudies mainColor={ mainColor }/>
+			<CaseStudies mainColor={ mainColor } darkColor={ darkColor }/>
 			<OurWorkingProcess mainColor={ mainColor } grayColor={ grayColor }/>
 			<Team mainColor={ mainColor } grayColor={ grayColor }/>
-			{/* <Testimonials mainColor={ mainColor } grayColor={ grayColor }/> */}
+			<Testimonials mainColor={ mainColor } grayColor={ grayColor } darkColor={ darkColor }/>
 		</div>
 	)
 }

@@ -1,6 +1,6 @@
 import { FaArrowLeft } from "react-icons/fa6";
 
-function CaseStudies({ mainColor }) {
+function CaseStudies({ mainColor, darkColor }) {
     return (
         <div className="w-[90%] mx-auto my-5">
             <div className="w-full flex flex-col gap-[40px] lg:flex-row justify-center lg:justify-start items-center py-[50px]">

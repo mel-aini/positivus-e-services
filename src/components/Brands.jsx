@@ -23,6 +23,9 @@ function Brands() {
 				setLeftP(x1);
 			}
 		}, 10);
+		return (() => {
+			clearInterval(id);
+		})
 	}, []);
 	
 	return (

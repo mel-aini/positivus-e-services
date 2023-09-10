@@ -8,7 +8,7 @@ content: [
     extend: {
       screens: {
         'sm-h': { 'raw': '(max-height: 600px)' },
-        'si': { 'raw': '(max-height: 0px)' },
+        'si': { 'raw': '(min-width: 0px)' },
       },
       keyframes: {
         test: {

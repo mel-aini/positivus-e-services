@@ -33,11 +33,11 @@ function Header() {
 				<button className="ml-[20px] border-[1px] border-solid border-black h-[68px] w-[231px] rounded-2xl text-lg cursor-pointer">Request a quote</button>
 			</div>}
 			{!showSideBar && <ul className="flex items-center">
-				<li>About us</li>
-				<li className="ml-[20px]">Services</li>
-				<li className="ml-[20px]">Use Cases</li>
-				<li className="ml-[20px]">Pricing</li>
-				<li className="ml-[20px]">Blog</li>
+				<li className="cursor-pointer ">About us</li>
+				<li className="cursor-pointer ml-[20px]">Services</li>
+				<li className="cursor-pointer ml-[20px]">Use Cases</li>
+				<li className="cursor-pointer ml-[20px]">Pricing</li>
+				<li className="cursor-pointer ml-[20px]">Blog</li>
 				<button className="ml-[20px] border-[1px] border-solid border-black h-[68px] w-[231px] rounded-2xl cursor-pointer">Request a quote</button>
 			</ul>}
 		</div>
