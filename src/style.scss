@@ -10,4 +10,13 @@ $second-color: transparent;
 	box-sizing: border-box;
 	font-family: 'Space Grotesk', sans-serif;
 }
+
+.contRef {
+	cursor: grab;
+}
+
+.contRef.dragging {
+	cursor: grab;
+	user-select: none;
+}
   

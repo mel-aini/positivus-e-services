@@ -28,10 +28,13 @@ function Testimonials({ mainColor, grayColor, darkColor}) {
     const contRef = useRef();
     const circlesRef = useRef();
     const parentRef = useRef();
-    const [index, setIndex] = useState(2);
+    const [index, setIndex] = useState(0);
     const indexRef = useRef(index);
+    const startX = useRef(0);
+    const startTrans = useRef(trans);
     const [leftArr, setLeftArr] = useState(1);
     const [rightArr, setRightArr] = useState(1);
+    const [isDragging, setIsDragging] = useState(false);
 
     const centerlize = () => {
         const comment = window.getComputedStyle(document.querySelector('.comment'));
@@ -84,6 +87,53 @@ function Testimonials({ mainColor, grayColor, darkColor}) {
         }
     }
 
+    const dragStart = (pageX) => {
+        setIsDragging(true);
+        startX.current = pageX;
+        startTrans.current = trans;
+        contRef.current.classList.add('dragging');
+    }
+
+    const dragStop = (pageX) => {
+        setIsDragging(false);
+        if (indexRef.current == 0 && pageX - startX.current > 0) {
+            return;
+        }
+        else if (indexRef.current == comments.length - 1 && pageX - startX.current < 0) {
+            return;
+        }
+        if (pageX - startX.current > 30) {
+            setIndex(index - 1);
+            indexRef.current = index - 1;
+        }
+        else if (pageX - startX.current < -30) {
+            setIndex(index + 1);
+            indexRef.current = index + 1;
+        }
+        centerlize();
+        contRef.current.classList.remove('dragging');
+    }
+
+    const dragging = (pageX) => {
+        if (!isDragging) return ;
+        const newPos = (parseFloat(trans) + pageX - startX.current);
+        if (indexRef.current == 0 && pageX - startX.current > 0) {
+            setIsDragging(false);
+            return;
+        }
+        if (indexRef.current == comments.length - 1 && pageX - startX.current < 0) {
+            setIsDragging(false);
+            return;
+        }
+        if (Math.abs(pageX - startX.current) > 40) {
+            setIsDragging(false);
+            setTrans(parseFloat(startTrans) + 'px');
+            return;
+        }
+        setTrans(newPos + 'px');
+    }
+
+
     return (
 		<div className="w-[90%] mx-auto flex flex-col justify-center items-center my-5">
 			<div className="w-full flex flex-col gap-[40px] lg:flex-row lg:justify-start justify-center items-center py-[50px]">
@@ -91,14 +141,14 @@ function Testimonials({ mainColor, grayColor, darkColor}) {
 				<p className="w-full text-center lg:text-start">At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:</p>
 			</div>
             <div ref={ parentRef } style={{backgroundColor: 'black'}} className="w-full flex flex-col gap-14 sm:gap-20 pt-10 pb-5 sm:pt-[100px] rounded-[45px] overflow-hidden">
-                <div ref={ contRef } className="contRef flex flex-nowrap gap-[50px] duration-500 ease-out" style={{transform: `translateX(${trans})`}}>
+                <div ref={ contRef } onTouchMove={(e) => {dragging(e.changedTouches[0].pageX)}} onTouchStart={(e) => {dragStart(e.changedTouches[0].pageX)}} onTouchEnd={(e) => {dragStop(e.changedTouches[0].pageX)}} onMouseDown={(e) => {dragStart(e.pageX)}} onMouseUp={(e) => dragStop(e.pageX) } onMouseMove={(e) => {dragging(e.pageX)}} className="contRef flex flex-nowrap gap-[50px] duration-500 ease-out" style={{transform: `translateX(${trans})`}}>
                     { comments.map((elem, index) => {
                         return (
                             <Comment elem={ elem } mainColor={ mainColor } darkColor={darkColor} key={ index }/>
                         )
                     })}
                 </div>
-                <div className="arrows flex justify-between items-center w-[90%] sm:w-[400px] lg:w-[600px] mx-auto">
+                <div className="arrows flex justify-between items-center max-w-[250px] w-[80%] sm:max-w-[400px] lg:max-w-[600px] mx-auto">
                     <FaArrowLeft style={{opacity: leftArr}} className="text-white cursor-pointer" onClick={backward}/>
                     <div ref={circlesRef} className="flex gap-2">
                         <Frame className="w-[16px] rotate-45 duration-500" />

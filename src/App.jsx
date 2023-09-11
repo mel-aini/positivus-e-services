@@ -7,6 +7,7 @@ import CaseStudies from './components/CaseStudies';
 import OurWorkingProcess from './components/OurWorkingProcess';
 import Team from './components/Team';
 import Testimonials from './components/Testimonials';
+import ContactUS from './components/ContacUs';
 
 function App() {
 	const mainColor = '#B9FF66';
@@ -23,6 +24,7 @@ function App() {
 			<OurWorkingProcess mainColor={ mainColor } grayColor={ grayColor }/>
 			<Team mainColor={ mainColor } grayColor={ grayColor }/>
 			<Testimonials mainColor={ mainColor } grayColor={ grayColor } darkColor={ darkColor }/>
+			<ContactUS mainColor={ mainColor } grayColor={ grayColor } darkColor={ darkColor }/>
 		</div>
 	)
 }
