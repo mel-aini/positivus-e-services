@@ -3,7 +3,7 @@ import { ReactComponent as Logo } from '../assets/PositivusBlack.svg';
 import { useEffect, useState } from 'react';
 import { FaArrowLeft } from "react-icons/fa6";
 
-function Header() {
+function Header( { colors } ) {
 	// const [list, setList] = useState(false);
 	const [showSideBar, setShowSideBar] = useState(false);
 	const [toggleSideBar, setToggleSideBar] = useState(false);

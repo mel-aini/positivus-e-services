@@ -8,23 +8,22 @@ import OurWorkingProcess from './components/OurWorkingProcess';
 import Team from './components/Team';
 import Testimonials from './components/Testimonials';
 import ContactUS from './components/ContacUs';
+import Footer from './components/Footer';
 
 function App() {
-	const mainColor = '#B9FF66';
-	const darkColor = '#191A23';
-	const grayColor = '#EEEEEE';
+	const colors = {main: '#B9FF66', dark: '#191A23', gray: '#F3F3F3'}
 	
 	return (
 		<div className='container mx-auto'>
-			{/* <span>world</span> */}
-			<Header mainColor={ mainColor }/>
-			<Home mainColor={ mainColor }/>
-			<Services mainColor={ mainColor }/>
-			<CaseStudies mainColor={ mainColor } darkColor={ darkColor }/>
-			<OurWorkingProcess mainColor={ mainColor } grayColor={ grayColor }/>
-			<Team mainColor={ mainColor } grayColor={ grayColor }/>
-			<Testimonials mainColor={ mainColor } grayColor={ grayColor } darkColor={ darkColor }/>
-			<ContactUS mainColor={ mainColor } grayColor={ grayColor } darkColor={ darkColor }/>
+			<Header colors={ colors }/>
+			<Home colors={ colors }/>
+			<Services colors={ colors }/>
+			<CaseStudies colors={ colors }/>
+			<OurWorkingProcess colors={ colors } />
+			<Team colors={ colors } />
+			<Testimonials colors={ colors } />
+			<ContactUS colors={ colors } />
+			<Footer colors={ colors } />
 		</div>
 	)
 }

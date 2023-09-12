@@ -22,18 +22,16 @@ const Icon = () => {
 	)
 }
 
-function ServicesItems() {
-	const mainColor = "#B9FF66";
-	const grayColor = "#F3F3F3";
+function ServicesItems({ colors }) {
 	const blackColor = "#000000";
 
 	const services = [
-		{ title1: "Search engine", title2: 'optimization', src: Seo, bgColor: mainColor, hBgColor: mainColor, hColor: blackColor, bBgColor: blackColor, bColor: mainColor },
-		{ title1: "Pay-per-click", title2: 'advertising', src: PpcA, bgColor: mainColor, hBgColor: grayColor, hColor: blackColor, bBgColor: blackColor, bColor: mainColor },
-		{ title1: "Social Media", title2: 'Marketing', src: Smm, bgColor: blackColor, hBgColor: grayColor, hColor: blackColor, bBgColor: grayColor, bColor: blackColor },
-		{ title1: "Email", title2: 'Marketing', src: Em, bgColor: grayColor, hBgColor: mainColor, hColor: blackColor, bBgColor: blackColor, bColor: mainColor },
-		{ title1: "Content", title2: 'Creation', src: Cc, bgColor: mainColor, hBgColor: grayColor, hColor: blackColor, bBgColor: blackColor, bColor: mainColor },
-		{ title1: "Analytics and", title2: 'Tracking', src: Aat, bgColor: blackColor, hBgColor: grayColor, hColor: blackColor, bBgColor: grayColor, bColor: blackColor }
+		{ title1: "Search engine", title2: 'optimization', src: Seo, bgColor: colors.main, hBgColor: colors.main, hColor: blackColor, bBgColor: blackColor, bColor: colors.main },
+		{ title1: "Pay-per-click", title2: 'advertising', src: PpcA, bgColor: colors.main, hBgColor: colors.gray, hColor: blackColor, bBgColor: blackColor, bColor: colors.main },
+		{ title1: "Social Media", title2: 'Marketing', src: Smm, bgColor: colors.dark, hBgColor: colors.gray, hColor: blackColor, bBgColor: colors.gray, bColor: blackColor },
+		{ title1: "Email", title2: 'Marketing', src: Em, bgColor: colors.gray, hBgColor: colors.main, hColor: blackColor, bBgColor: blackColor, bColor: colors.main },
+		{ title1: "Content", title2: 'Creation', src: Cc, bgColor: colors.main, hBgColor: colors.gray, hColor: blackColor, bBgColor: blackColor, bColor: colors.main },
+		{ title1: "Analytics and", title2: 'Tracking', src: Aat, bgColor: colors.dark, hBgColor: colors.gray, hColor: blackColor, bBgColor: colors.gray, bColor: blackColor }
 	];
 
 	return (

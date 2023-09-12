@@ -4,16 +4,16 @@ import { ReactComponent as Frame } from '../assets/Frame.svg';
 
 let cRef;
 
-function Comment({ elem, mainColor, darkColor }) {
+function Comment({ elem, colors }) {
     cRef = useRef();
 
     return (
         <div ref={ cRef } className="comment text-white mb-[80px] min-w-[250px] sm:min-w-[400px] lg:min-w-[600px]">
-            <div style={{border: `1px solid ${mainColor}`}} className="p-5 sm:p-10 rounded-3xl relative">{ elem.comment }
-                <div className="absolute bottom-[-15px] left-[10%] w-[30px] h-[30px] rotate-[45deg] border-[1px] border-solid" style={{borderColor: `transparent ${mainColor} ${mainColor} transparent`, backgroundColor: 'black'}}>
+            <div style={{border: `1px solid ${colors.main}`}} className="p-5 sm:p-10 rounded-3xl relative">{ elem.comment }
+                <div className="absolute bottom-[-15px] left-[10%] w-[30px] h-[30px] rotate-[45deg] border-[1px] border-solid" style={{borderColor: `transparent ${colors.main} ${colors.main} transparent`, backgroundColor: colors.dark}}>
                     <div className="relative w-full h-full rotate-[-45deg]">
                         <div className="absolute bottom-[-70px] left-[50%] min-w-[250px]">
-                            <h1 className="text-sm font-bold" style={{color: mainColor}}>{ elem.client }</h1>
+                            <h1 className="text-sm font-bold" style={{color: colors.main}}>{ elem.client }</h1>
                             <h2 className="text-sm">{ elem.role }</h2>
                         </div>
                     </div>
@@ -23,7 +23,7 @@ function Comment({ elem, mainColor, darkColor }) {
     )
 }
 
-function Testimonials({ mainColor, grayColor, darkColor}) {
+function Testimonials({ colors }) {
     const [trans, setTrans] = useState(0);
     const contRef = useRef();
     const circlesRef = useRef();
@@ -56,7 +56,7 @@ function Testimonials({ mainColor, grayColor, darkColor}) {
         allChilds.forEach((element) => {
             element.style.fill = 'white';
         });
-        allChilds[index].style.fill = mainColor;
+        allChilds[index].style.fill = colors.main;
         index == comments.length - 1 ? setRightArr(0.5) : setRightArr(1);
         index == 0 ? setLeftArr(0.5) : setLeftArr(1);
     }, [index]);
@@ -135,16 +135,16 @@ function Testimonials({ mainColor, grayColor, darkColor}) {
 
 
     return (
-		<div className="w-[90%] mx-auto flex flex-col justify-center items-center my-5">
+		<div className="w-[90%] mx-auto flex flex-col justify-center items-center my-5 sm:mt-16">
 			<div className="w-full flex flex-col gap-[40px] lg:flex-row lg:justify-start justify-center items-center py-[50px]">
-				<h1 className="font-bold text-5xl py-2 px-3 rounded-xl" style={{backgroundColor: mainColor}}>Testimonials</h1>
+				<h1 className="font-bold text-5xl py-2 px-3 rounded-xl" style={{backgroundColor: colors.main}}>Testimonials</h1>
 				<p className="w-full text-center lg:text-start">At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:</p>
 			</div>
-            <div ref={ parentRef } style={{backgroundColor: 'black'}} className="w-full flex flex-col gap-14 sm:gap-20 pt-10 pb-5 sm:pt-[100px] rounded-[45px] overflow-hidden">
+            <div ref={ parentRef } style={{backgroundColor: colors.dark}} className="w-full flex flex-col gap-14 sm:gap-20 pt-10 pb-5 sm:pt-[100px] rounded-[45px] overflow-hidden">
                 <div ref={ contRef } onTouchMove={(e) => {dragging(e.changedTouches[0].pageX)}} onTouchStart={(e) => {dragStart(e.changedTouches[0].pageX)}} onTouchEnd={(e) => {dragStop(e.changedTouches[0].pageX)}} onMouseDown={(e) => {dragStart(e.pageX)}} onMouseUp={(e) => dragStop(e.pageX) } onMouseMove={(e) => {dragging(e.pageX)}} className="contRef flex flex-nowrap gap-[50px] duration-500 ease-out" style={{transform: `translateX(${trans})`}}>
                     { comments.map((elem, index) => {
                         return (
-                            <Comment elem={ elem } mainColor={ mainColor } darkColor={darkColor} key={ index }/>
+                            <Comment elem={ elem } colors={ colors } key={ index }/>
                         )
                     })}
                 </div>
