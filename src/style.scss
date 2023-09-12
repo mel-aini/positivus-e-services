@@ -20,6 +20,14 @@ $grayColor : #EEEEEE;
 	user-select: none;
 }
 body {
+	.case-studies {
+		.wrapper {
+			scrollbar-width: none;  /* Firefox */
+		}
+		.wrapper::-webkit-scrollbar { 
+			display: none;  /* Safari and Chrome */
+		}
+	}
 	.contactUs {
 		input {
 			position: relative;

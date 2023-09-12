@@ -22,22 +22,24 @@ function Team({ colors }) {
     const [btnExpand, setBtnExpand] = useState(false);
     const [btnMsg, setBtnMsg] = useState('See all team');
 
-	useEffect(() => {
-		if (window.innerWidth >= 640) setDisNbr(6);
-	}, []);
-	window.addEventListener('resize', () => {
+    const setNbrHandler = () => {
         if (window.innerWidth >= 640) setDisNbr(6);
-        else { setDisNbr(3); setBtnExpand(false); setBtnMsg('See all team'); }
-	});
+        else { setDisNbr(3); setBtnExpand(false); setBtnMsg('See all team');}
+    }
+	useEffect(() => {
+		setNbrHandler();
+        window.addEventListener('resize', setNbrHandler);
+	}, []);
 
     const members = [
         {name: 'John Smith', slug: 'CEO and Founder', bio: '10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy'},
-        {name: 'John Smith', slug: 'CEO and Founder', bio: '10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy'},
-        {name: 'John Smith', slug: 'CEO and Founder', bio: '10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy'},
-        {name: 'John Smith', slug: 'CEO and Founder', bio: '10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy'},
-        {name: 'John Smith', slug: 'CEO and Founder', bio: '10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy'},
-        {name: 'John Smith', slug: 'CEO and Founder', bio: '10+ years of experience in digital marketing. Expertise in SEO, PPC, and content strategy'},
+        {name: 'Jane Doe', slug: 'Director of Operations', bio: '7+ years of experience in project management and team leadership. Strong organizational and communication skills'},
+        {name: 'Michael Brown', slug: 'Senior SEO Specialist', bio: '5+ years of experience in SEO and content creation. Proficient in keyword research and on-page optimization'},
+        {name: 'Emily Johnson', slug: 'PPC Manager', bio: '3+ years of experience in paid search advertising. Skilled in campaign management and performance analysis'},
+        {name: 'Brian Williams', slug: 'Social Media Specialist', bio: '4+ years of experience in social media marketing. Proficient in creating and scheduling content, analyzing metrics, and building engagement'},
+        {name: 'Sarah Kim', slug: 'Content Creator', bio: '2+ years of experience in writing and editing. Skilled in creating compelling, SEO-optimized content for various industries'},
     ]
+
 	return (
 		<div className="w-[90%] mx-auto flex flex-col justify-center items-center my-5 sm:mt-16">
 			<div className="w-full flex flex-col gap-[40px] lg:flex-row lg:justify-start justify-center items-center py-[50px]">

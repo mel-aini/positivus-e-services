@@ -138,7 +138,7 @@ function Testimonials({ colors }) {
 		<div className="w-[90%] mx-auto flex flex-col justify-center items-center my-5 sm:mt-16">
 			<div className="w-full flex flex-col gap-[40px] lg:flex-row lg:justify-start justify-center items-center py-[50px]">
 				<h1 className="font-bold text-5xl py-2 px-3 rounded-xl" style={{backgroundColor: colors.main}}>Testimonials</h1>
-				<p className="w-full text-center lg:text-start">At our digital marketing agency, we offer a range of services to help businesses grow and succeed online. These services include:</p>
+				<p className="w-full text-center lg:text-start">Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services</p>
 			</div>
             <div ref={ parentRef } style={{backgroundColor: colors.dark}} className="w-full flex flex-col gap-14 sm:gap-20 pt-10 pb-5 sm:pt-[100px] rounded-[45px] overflow-hidden">
                 <div ref={ contRef } onTouchMove={(e) => {dragging(e.changedTouches[0].pageX)}} onTouchStart={(e) => {dragStart(e.changedTouches[0].pageX)}} onTouchEnd={(e) => {dragStop(e.changedTouches[0].pageX)}} onMouseDown={(e) => {dragStart(e.pageX)}} onMouseUp={(e) => dragStop(e.pageX) } onMouseMove={(e) => {dragging(e.pageX)}} className="contRef flex flex-nowrap gap-[50px] duration-500 ease-out" style={{transform: `translateX(${trans})`}}>
