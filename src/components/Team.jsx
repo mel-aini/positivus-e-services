@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import ReusableButton from "./ReusableButton";
 
 function Member({ elem, colors }) {
 	return (
@@ -54,12 +55,20 @@ function Team({ colors }) {
                         )
                     }
                 })}
-                <button onClick={() => {
+                <ReusableButton
+                    className={"sm:hidden h-[60px] w-full"}
+                    title={btnMsg} bgColor={colors.dark} textColor={'#FFFFFF'} circleBgColor={colors.main}
+                    onClick={() => {
+                        if (btnExpand) { setDisNbr(3); setBtnExpand(false); setBtnMsg('See all team'); }
+                        else { setDisNbr(6); setBtnExpand(true); setBtnMsg('Show less');}
+                    }}
+                />
+                {/* <button onClick={() => {
                     if (btnExpand) { setDisNbr(3); setBtnExpand(false); setBtnMsg('See all team'); }
                     else { setDisNbr(6); setBtnExpand(true); setBtnMsg('Show less'); }
                 }} 
                     style={{backgroundColor: colors.dark}}
-                    className='sm:hidden h-[60px] text-white rounded-2xl w-full'>{ btnMsg }</button>
+                    className='sm:hidden h-[60px] text-white rounded-2xl w-full'>{ btnMsg }</button> */}
             </div>
 		</div>
 	);

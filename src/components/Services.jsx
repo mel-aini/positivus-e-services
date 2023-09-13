@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import ServicesItems from "./ServicesItems";
 import { ReactComponent as Illustration } from '../assets/services/Illustration.svg';
+import ReusableButton from "./ReusableButton";
 
 function Services({ colors }) {
 	const [smallW, setSmallW] = useState(true);
@@ -22,9 +23,13 @@ function Services({ colors }) {
 				<div className="flex flex-col items-start justify-between sm:px-[50px] md:py-[30px]">
 					<h1 className="font-medium text-2xl sm:text-4xl">Let’s make things happen</h1>
 					<p className="leading-7">Contact us today to learn more about how our digital marketing services can help your business grow and succeed online.</p>
-					<button 
+					<ReusableButton 
+						className={"w-full lg:w-[288px] h-[68px]"}
+						title='Get your proposal' bgColor={colors.dark} textColor={'#FFFFFF'} circleBgColor={colors.main}
+					/>
+					{/* <button 
 						style={{backgroundColor: colors.dark}}
-						className="text-white w-full lg:w-[288px] h-[68px] rounded-xl">Get your proposal</button>
+						className="text-white w-full lg:w-[288px] h-[68px] rounded-xl">Get your proposal</button> */}
 				</div>
 				{!smallW && <div className="relative w-[70%]">
 					<Illustration className="absolute right-[-120px] top-[-35px]"/>

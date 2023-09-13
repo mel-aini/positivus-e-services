@@ -2,6 +2,7 @@ import { HiOutlineMenu } from "react-icons/hi";
 import { ReactComponent as Logo } from '../assets/PositivusBlack.svg';
 import { useEffect, useState } from 'react';
 import { FaArrowLeft } from "react-icons/fa6";
+import ReusableButton from "./ReusableButton";
 
 function Header( { colors } ) {
 	// const [list, setList] = useState(false);
@@ -30,7 +31,11 @@ function Header( { colors } ) {
 					<li className="px-6 py-3 text-lg">Pricing</li>
 					<li className="px-6 py-3 text-lg">Blog</li>
 				</ul>
-				<button className="ml-[20px] border-[1px] border-solid border-black h-[68px] w-[231px] rounded-2xl text-lg cursor-pointer">Request a quote</button>
+				<ReusableButton
+                        className={"ml-[20px] border-[1px] border-solid border-black h-[68px] w-[231px] text-lg"}
+                        title='Request a quote' bgColor={'transparent'} textColor={'#000000'} circleBgColor={colors.dark}
+				/>
+				{/* <button className="ml-[20px] border-[1px] border-solid border-black h-[68px] w-[231px] rounded-2xl">Request a quote</button> */}
 			</div>}
 			{!showSideBar && <ul className="flex items-center">
 				<li className="cursor-pointer ">About us</li>
@@ -38,7 +43,11 @@ function Header( { colors } ) {
 				<li className="cursor-pointer ml-[20px]">Use Cases</li>
 				<li className="cursor-pointer ml-[20px]">Pricing</li>
 				<li className="cursor-pointer ml-[20px]">Blog</li>
-				<button className="ml-[20px] border-[1px] border-solid border-black h-[68px] w-[231px] rounded-2xl cursor-pointer">Request a quote</button>
+				<ReusableButton
+                        className={"ml-[20px] border-[1px] border-solid border-black h-[68px] w-[231px]"}
+                        title='Request a quote' bgColor={'transparent'} textColor={'#000000'} circleBgColor={colors.dark} hoverTextColor={'#FFFFFF'}
+				/>
+				{/* <button className="ml-[20px] border-[1px] border-solid border-black h-[68px] w-[231px] rounded-2xl">Request a quote</button> */}
 			</ul>}
 		</div>
 	);

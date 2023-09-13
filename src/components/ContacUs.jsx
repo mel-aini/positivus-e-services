@@ -1,5 +1,5 @@
 import { ReactComponent as Illustration } from '../assets/contactUs.svg';
-
+import ReusableButton from "./ReusableButton";
 
 function ContactUS({ colors }) {
     return (
@@ -34,10 +34,15 @@ function ContactUS({ colors }) {
                             <textarea name="message" id="message" cols="30" rows="10" placeholder='Message' className="border-[1px] border-solid border-black outline-none p-4 rounded-2xl"></textarea>
                         </div>
                     </div>
-                    <button 
+                    <ReusableButton
+                        className={"h-[60px] my-6 w-full"}
+                        title={'Send Message'} bgColor={colors.dark} textColor={'#FFFFFF'} circleBgColor={colors.main}
+                    />
+                    {/* <button 
                         type="submit" 
                         style={{backgroundColor: colors.dark}}
-                        className="h-[60px] text-white rounded-2xl w-full my-6">Send Message</button>
+                        className="h-[60px] text-white rounded-2xl w-full my-6">Send Message
+                    </button> */}
                 </form>
                 <Illustration className="hidden lg:block absolute right-0 top-[50%] translate-y-[-50%] translate-x-[51%]" />
             </div>

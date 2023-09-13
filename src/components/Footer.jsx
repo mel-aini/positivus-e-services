@@ -2,6 +2,7 @@ import { ReactComponent as Logo } from '../assets/PositivusWhite.svg';
 import { ReactComponent as LinkedIn } from '../assets/social/LinkedIn.svg';
 import { ReactComponent as Facebook } from '../assets/social/Facebook.svg';
 import { ReactComponent as Twitter } from '../assets/social/Twitter.svg';
+import ReusableButton from "./ReusableButton";
 
 function Footer( { colors } ) {
     return (
@@ -38,10 +39,15 @@ function Footer( { colors } ) {
                         id="mail" 
                         placeholder='Email' 
                         className="w-full border-[1px] border-solid border-white bg-transparent outline-none p-4 rounded-2xl"/>
-                    <button 
+                    {/* <button 
                         type='submit' 
                         className="h-[60px] text-white font-medium rounded-2xl w-full" 
-                        style={{backgroundColor: colors.main, color: colors.dark}}>Subscribe to news</button>
+                        style={{backgroundColor: colors.main, color: colors.dark}}>Subscribe to news
+                    </button> */}
+                    <ReusableButton
+                        className={"h-[60px] w-full font-medium"}
+                        title={'Subscribe to news'} bgColor={colors.main} textColor={colors.dark} circleBgColor={'#FFFFFF'}
+                    />
                 </form>
                 <div className='flex justify-center gap-4 lg:hidden'>
                     <LinkedIn className="cursor-pointer"/>
