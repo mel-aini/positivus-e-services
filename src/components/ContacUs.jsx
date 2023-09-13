@@ -35,14 +35,10 @@ function ContactUS({ colors }) {
                         </div>
                     </div>
                     <ReusableButton
+                        type="submit"
                         className={"h-[60px] my-6 w-full"}
-                        title={'Send Message'} bgColor={colors.dark} textColor={'#FFFFFF'} circleBgColor={colors.main}
+                        title={'Send Message'} bgColor={colors.dark} textColor={'#FFFFFF'} circleBgColor={colors.main} hoverTextColor={colors.dark}
                     />
-                    {/* <button 
-                        type="submit" 
-                        style={{backgroundColor: colors.dark}}
-                        className="h-[60px] text-white rounded-2xl w-full my-6">Send Message
-                    </button> */}
                 </form>
                 <Illustration className="hidden lg:block absolute right-0 top-[50%] translate-y-[-50%] translate-x-[51%]" />
             </div>

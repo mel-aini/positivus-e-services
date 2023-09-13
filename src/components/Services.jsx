@@ -25,7 +25,7 @@ function Services({ colors }) {
 					<p className="leading-7">Contact us today to learn more about how our digital marketing services can help your business grow and succeed online.</p>
 					<ReusableButton 
 						className={"w-full lg:w-[288px] h-[68px]"}
-						title='Get your proposal' bgColor={colors.dark} textColor={'#FFFFFF'} circleBgColor={colors.main}
+						title='Get your proposal' bgColor={colors.dark} textColor={'#FFFFFF'} circleBgColor={colors.main} hoverTextColor={colors.dark}
 					/>
 					{/* <button 
 						style={{backgroundColor: colors.dark}}

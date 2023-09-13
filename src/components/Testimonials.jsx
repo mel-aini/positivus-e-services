@@ -28,7 +28,7 @@ function Testimonials({ colors }) {
     const contRef = useRef();
     const circlesRef = useRef();
     const parentRef = useRef();
-    const [index, setIndex] = useState(0);
+    const [index, setIndex] = useState(2);
     const indexRef = useRef(index);
     const startX = useRef(0);
     const startTrans = useRef(trans);

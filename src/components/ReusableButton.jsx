@@ -1,22 +1,29 @@
 import { useEffect, useState, useRef } from 'react';
 
-function ReusableButton({className, bgColor, textColor, title, circleBgColor, hoverTextColor}) {
+function ReusableButton({type, handler, className, bgColor, textColor, title, circleBgColor, hoverTextColor}) {
     const [isHover, setIsHover] = useState(0);
     const [titleColor, setTitleColor] = useState(textColor);
 	const [axis, setAxis] = useState({x: 0, y: 0});
 	const btnRef = useRef(null);
 	const cirlceRef = useRef(null);
 
-    if (hoverTextColor == undefined)
-        hoverTextColor = textColor;
     return (
         <button 
+            type={type || 'button'}
+            onClick={handler || null}
             ref={btnRef}
-            onMouseEnter={(e) => {
-                setIsHover(1);
-                setTitleColor(hoverTextColor);
+            onMouseMove={(e) => {
                 const pos = btnRef.current.getBoundingClientRect();
                 setAxis({x: (e.screenX - pos.x) - (cirlceRef.current.clientWidth / 2), y: (e.screenY - pos.y) - (cirlceRef.current.clientWidth / 2)});
+            }}
+            onMouseEnter={(e) => {
+                const x = window.matchMedia('(hover: hover)');
+                if (x.matches) {
+                    setIsHover(1);
+                    setTitleColor(hoverTextColor || textColor);
+                    const pos = btnRef.current.getBoundingClientRect();
+                    setAxis({x: (e.screenX - pos.x) - (cirlceRef.current.clientWidth / 2), y: (e.screenY - pos.y) - (cirlceRef.current.clientWidth / 2)});
+                }
             }}
             className={"relative overflow-hidden rounded-2xl " + className}
             onMouseLeave={() => {
@@ -24,7 +31,7 @@ function ReusableButton({className, bgColor, textColor, title, circleBgColor, ho
                 setTitleColor(textColor);
             }}
             style={{backgroundColor: bgColor}}>
-            <span style={{color: titleColor}} className='relative z-[2]'>{ title }</span>
+            <span style={{color: titleColor}} className='relative z-[2] font-medium'>{ title }</span>
             <span 
                 ref={cirlceRef}
                 style={{left: axis.x, top: axis.y, transform: `scale(${isHover})`, backgroundColor: circleBgColor}} 

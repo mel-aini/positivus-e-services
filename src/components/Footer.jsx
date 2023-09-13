@@ -39,12 +39,8 @@ function Footer( { colors } ) {
                         id="mail" 
                         placeholder='Email' 
                         className="w-full border-[1px] border-solid border-white bg-transparent outline-none p-4 rounded-2xl"/>
-                    {/* <button 
-                        type='submit' 
-                        className="h-[60px] text-white font-medium rounded-2xl w-full" 
-                        style={{backgroundColor: colors.main, color: colors.dark}}>Subscribe to news
-                    </button> */}
                     <ReusableButton
+                        type='submit'
                         className={"h-[60px] w-full font-medium"}
                         title={'Subscribe to news'} bgColor={colors.main} textColor={colors.dark} circleBgColor={'#FFFFFF'}
                     />

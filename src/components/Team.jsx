@@ -57,8 +57,8 @@ function Team({ colors }) {
                 })}
                 <ReusableButton
                     className={"sm:hidden h-[60px] w-full"}
-                    title={btnMsg} bgColor={colors.dark} textColor={'#FFFFFF'} circleBgColor={colors.main}
-                    onClick={() => {
+                    title={btnMsg} bgColor={colors.dark} textColor={'#FFFFFF'} circleBgColor={colors.main} hoverTextColor={colors.dark}
+                    handler={() => {
                         if (btnExpand) { setDisNbr(3); setBtnExpand(false); setBtnMsg('See all team'); }
                         else { setDisNbr(6); setBtnExpand(true); setBtnMsg('Show less');}
                     }}
