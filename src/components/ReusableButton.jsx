@@ -1,6 +1,10 @@
 import { useEffect, useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 function ReusableButton({
+  initial,
+  animate,
+  transition,
   type,
   handler,
   className,
@@ -17,7 +21,10 @@ function ReusableButton({
   const cirlceRef = useRef(null);
 
   return (
-    <button
+    <motion.button
+      initial={initial || {}}
+      animate={animate || {}}
+      transition={transition || {}}
       type={type || "button"}
       onClick={handler || null}
       ref={btnRef}
@@ -63,7 +70,7 @@ function ReusableButton({
         }}
         className="hover-span absolute z-[1] w-[400px] h-[400px] rounded-full duration-300"
       ></span>
-    </button>
+    </motion.button>
   );
 }
 
