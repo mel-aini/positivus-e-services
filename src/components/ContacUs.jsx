@@ -29,11 +29,17 @@ function ContactUS({ colors }) {
                   name="choice"
                   id="say-hi"
                   defaultChecked="checked"
+                  autoComplete="on"
                 />
                 <label htmlFor="say-hi">Say Hi</label>
               </div>
               <div className="flex justify-center items-center gap-3 ">
-                <input type="radio" name="choice" id="get-a-guote" />
+                <input
+                  autoComplete="on"
+                  type="radio"
+                  name="choice"
+                  id="get-a-guote"
+                />
                 <label htmlFor="get-a-guote">Get a Quote</label>
               </div>
             </div>
@@ -44,6 +50,7 @@ function ContactUS({ colors }) {
                 name="name"
                 id="name"
                 placeholder="Name"
+                autoComplete="on"
                 className="border-[1px] border-solid border-black outline-none p-4 rounded-2xl"
               />
             </div>
@@ -54,6 +61,7 @@ function ContactUS({ colors }) {
                 name="email"
                 id="email"
                 placeholder="Email"
+                autoComplete="on"
                 className="border-[1px] border-solid border-black outline-none p-4 rounded-2xl"
               />
             </div>

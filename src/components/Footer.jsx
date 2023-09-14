@@ -48,6 +48,7 @@ function Footer({ colors }) {
             name="mail"
             id="mail"
             placeholder="Email"
+            autoComplete="on"
             className="w-full border-[1px] border-solid border-white bg-transparent outline-none p-4 rounded-2xl"
           />
           <ReusableButton
