@@ -68,16 +68,16 @@ function Header({ colors }) {
           <li className="font-medium cursor-pointer hover:mr-[10px] hover:text-[#191A23] duration-300">
             About us
           </li>
-          <li className="font-medium cursor-pointer ml-[20px] hover:ml-[30px] hover:mr-[10px] hover:text-[#191A23] duration-300">
+          <li className="font-medium cursor-pointer pl-[20px] hover:pl-[30px] hover:pr-[10px] hover:text-[#191A23] duration-300">
             Services
           </li>
-          <li className="font-medium cursor-pointer ml-[20px] hover:ml-[30px] hover:mr-[10px] hover:text-[#191A23] duration-300">
+          <li className="font-medium cursor-pointer pl-[20px] hover:pl-[30px] hover:pr-[10px] hover:text-[#191A23] duration-300">
             Use Cases
           </li>
-          <li className="font-medium cursor-pointer ml-[20px] hover:ml-[30px] hover:mr-[10px] hover:text-[#191A23] duration-300">
+          <li className="font-medium cursor-pointer pl-[20px] hover:pl-[30px] hover:pr-[10px] hover:text-[#191A23] duration-300">
             Pricing
           </li>
-          <li className="font-medium cursor-pointer ml-[20px] hover:ml-[30px] hover:mr-[10px] hover:text-[#191A23] duration-300">
+          <li className="font-medium cursor-pointer pl-[20px] hover:pl-[30px] hover:pr-[10px] hover:text-[#191A23] duration-300">
             Blog
           </li>
           <ReusableButton
