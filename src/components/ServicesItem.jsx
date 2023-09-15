@@ -10,6 +10,7 @@ ServicesItem.propTypes = {
 function ServicesItem({ elem, colors }) {
   const [scale, setScale] = useState(0);
   const [btnScale, setBtnScale] = useState(1);
+  const [arrowColor, setArrowColor] = useState(elem.bColor);
   const [spanOpacity, setSpanOpacity] = useState(0);
   const contRef = useRef(null);
   const spanSize = 40;
@@ -67,18 +68,21 @@ function ServicesItem({ elem, colors }) {
               setScale(30);
               setSpanOpacity(2);
               setBtnScale(1.1);
-              console.log("hello");
+              spanBgColor == colors.main && elem.bBgColor == colors.gray
+                ? setArrowColor(colors.dark)
+                : setArrowColor(spanBgColor);
             }}
             onMouseLeave={() => {
               setScale(1);
               setSpanOpacity(0);
               setBtnScale(1);
+              setArrowColor(elem.bColor);
             }}
             style={{
               backgroundColor: elem.bBgColor,
-              color: elem.bColor,
+              color: arrowColor,
             }}
-            className="text-2xl rotate-[135deg] bg-[#eee] w-[40px] h-[40px] p-[5px] absolute top-0 left-0"
+            className="text-2xl rotate-[135deg] bg-[#eee] w-[40px] h-[40px] p-[5px] absolute top-0 left-0 duration-500 ease-out"
           />
         </div>
         <img src={elem.src} />
