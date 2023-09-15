@@ -3,6 +3,11 @@ import { ReactComponent as LinkedIn } from "../assets/social/LinkedIn.svg";
 import { ReactComponent as Facebook } from "../assets/social/Facebook.svg";
 import { ReactComponent as Twitter } from "../assets/social/Twitter.svg";
 import ReusableButton from "./ReusableButton";
+import PropTypes from "prop-types";
+
+Footer.propTypes = {
+  colors: PropTypes.object,
+};
 
 function Footer({ colors }) {
   return (

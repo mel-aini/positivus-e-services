@@ -1,4 +1,12 @@
 import { useRef, useState } from "react";
+import PropTypes from "prop-types";
+
+Process.propTypes = {
+  index: PropTypes.string,
+  title: PropTypes.string,
+  paragraph: PropTypes.string,
+  colors: PropTypes.object,
+};
 
 function Process({ index, title, paragraph, colors }) {
   const [expand, setExpand] = useState(false);
@@ -74,6 +82,10 @@ function Process({ index, title, paragraph, colors }) {
     </div>
   );
 }
+
+OurWorkingProcess.propTypes = {
+  colors: PropTypes.object,
+};
 
 function OurWorkingProcess({ colors }) {
   const processes = [

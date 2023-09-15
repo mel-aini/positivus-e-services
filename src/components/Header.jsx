@@ -3,6 +3,11 @@ import { ReactComponent as Logo } from "../assets/PositivusBlack.svg";
 import { useEffect, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import ReusableButton from "./ReusableButton";
+import PropTypes from "prop-types";
+
+Header.propTypes = {
+  colors: PropTypes.object,
+};
 
 function Header({ colors }) {
   // const [list, setList] = useState(false);

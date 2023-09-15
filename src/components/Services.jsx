@@ -2,6 +2,11 @@ import { useState, useEffect } from "react";
 import ServicesItems from "./ServicesItems";
 import { ReactComponent as Illustration } from "../assets/services/Illustration.svg";
 import ReusableButton from "./ReusableButton";
+import PropTypes from "prop-types";
+
+Services.propTypes = {
+  colors: PropTypes.object,
+};
 
 function Services({ colors }) {
   const [smallW, setSmallW] = useState(true);

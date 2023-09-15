@@ -1,5 +1,20 @@
-import { useEffect, useState, useRef } from "react";
+import { useState, useRef } from "react";
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+
+ReusableButton.propTypes = {
+  initial: PropTypes.object,
+  animate: PropTypes.object,
+  transition: PropTypes.object,
+  type: PropTypes.string,
+  handler: PropTypes.func,
+  className: PropTypes.string,
+  bgColor: PropTypes.string,
+  textColor: PropTypes.string,
+  title: PropTypes.string,
+  circleBgColor: PropTypes.string,
+  hoverTextColor: PropTypes.string,
+};
 
 function ReusableButton({
   initial,

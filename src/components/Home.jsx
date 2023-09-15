@@ -1,8 +1,13 @@
 import HomeIllustration from "./HomeIllustration";
-import { useEffect, useState, useRef } from "react";
+import { useEffect, useState } from "react";
 import Brands from "./Brands";
 import { motion } from "framer-motion";
 import ReusableButton from "./ReusableButton";
+import PropTypes from "prop-types";
+
+Home.propTypes = {
+  colors: PropTypes.object,
+};
 
 function Home({ colors }) {
   const [smallW, setSmallW] = useState(true);

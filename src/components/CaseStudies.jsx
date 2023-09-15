@@ -1,5 +1,10 @@
 import { FaArrowLeft } from "react-icons/fa6";
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
+
+CaseStudies.propTypes = {
+  colors: PropTypes.object,
+};
 
 function CaseStudies({ colors }) {
   const [color, setColor] = useState("transparent");

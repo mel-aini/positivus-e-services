@@ -7,6 +7,14 @@ import { ReactComponent as Circle } from "../assets/circle.svg";
 import { ReactComponent as Ellipse } from "../assets/Ellipse.svg";
 import { ReactComponent as Frame } from "../assets/Frame.svg";
 import { motion } from "framer-motion";
+import PropTypes from "prop-types";
+
+HomeIllustration.propTypes = {
+  initial: PropTypes.object,
+  animate: PropTypes.object,
+  transition: PropTypes.object,
+  colors: PropTypes.object,
+};
 
 function HomeIllustration({ initial, animate, transition, colors }) {
   return (

@@ -1,5 +1,10 @@
 import { ReactComponent as Illustration } from "../assets/contactUs.svg";
 import ReusableButton from "./ReusableButton";
+import PropTypes from "prop-types";
+
+ContactUS.propTypes = {
+  colors: PropTypes.object,
+};
 
 function ContactUS({ colors }) {
   return (
@@ -12,7 +17,7 @@ function ContactUS({ colors }) {
           Contact Us
         </h1>
         <p className="w-full text-center lg:text-start">
-          Connect with Us: Let's Discuss Your Digital Marketing Needs
+          {"Connect with Us: Let's Discuss Your Digital Marketing Needs"}
         </p>
       </div>
       <div className="w-full relative overflow-hidden lg:bg-gray-200 lg:rounded-[45px] lg:p-14">

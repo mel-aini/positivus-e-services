@@ -1,4 +1,3 @@
-import { useEffect, useState } from "react";
 import Aat from "../assets/services/Aat.png";
 import Cc from "../assets/services/Cc.png";
 import Em from "../assets/services/Em.png";
@@ -6,36 +5,10 @@ import PpcA from "../assets/services/PpcA.png";
 import Seo from "../assets/services/Seo.png";
 import Smm from "../assets/services/Smm.png";
 import { FaArrowLeft } from "react-icons/fa6";
+import PropTypes from "prop-types";
 
-const Icon = () => {
-  return (
-    <svg
-      width="61"
-      height="61"
-      viewBox="0 0 61 61"
-      fill="none"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <g clip-path="url(#clip0_315_586)">
-        <path
-          d="M41.2104 19.9769L60.1571 30.3002L41.2104 40.7064L30.8457 59.6116L20.481 40.7064L1.53428 30.3002L20.481 19.9769L30.8457 0.98877L41.2104 19.9769Z"
-          fill="black"
-          stroke="white"
-          stroke-miterlimit="10"
-        />
-      </g>
-      <defs>
-        <clipPath id="clip0_315_586">
-          <rect
-            width="42.3321"
-            height="42.3321"
-            fill="white"
-            transform="translate(30.8457 0.408203) rotate(45)"
-          />
-        </clipPath>
-      </defs>
-    </svg>
-  );
+ServicesItems.propTypes = {
+  colors: PropTypes.object,
 };
 
 function ServicesItems({ colors }) {

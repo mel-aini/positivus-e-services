@@ -1,6 +1,12 @@
 import { useEffect, useRef, useState } from "react";
 import { FaArrowLeft } from "react-icons/fa6";
 import { ReactComponent as Frame } from "../assets/Frame.svg";
+import PropTypes from "prop-types";
+
+Comment.propTypes = {
+  elem: PropTypes.object,
+  colors: PropTypes.object,
+};
 
 let cRef;
 
@@ -37,6 +43,10 @@ function Comment({ elem, colors }) {
     </div>
   );
 }
+
+Testimonials.propTypes = {
+  colors: PropTypes.object,
+};
 
 function Testimonials({ colors }) {
   const [trans, setTrans] = useState(0);

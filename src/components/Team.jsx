@@ -1,6 +1,11 @@
 import { useState, useEffect } from "react";
 import ReusableButton from "./ReusableButton";
+import PropTypes from "prop-types";
 
+Member.propTypes = {
+  elem: PropTypes.object,
+  colors: PropTypes.object,
+};
 function Member({ elem, colors }) {
   return (
     <div className="flex flex-col gap-4 rounded-[45px] py-10 px-8 border-[1px] border-solid border-black shadow-[0_5px] shadow-black">
@@ -22,6 +27,10 @@ function Member({ elem, colors }) {
     </div>
   );
 }
+
+Team.propTypes = {
+  colors: PropTypes.object,
+};
 
 function Team({ colors }) {
   const [disNbr, setDisNbr] = useState(3);
