@@ -11,7 +11,7 @@ Home.propTypes = {
 
 function Home({ colors }) {
   const [smallW, setSmallW] = useState(true);
-  let [dictionary, setDictionary] = useState("");
+  let [paragraph, setParagraph] = useState("");
 
   useEffect(() => {
     window.innerWidth >= 768 ? setSmallW(false) : setSmallW(true);
@@ -34,12 +34,12 @@ function Home({ colors }) {
     marketing, and content creation.";
     let tmp = "";
     let i = 0;
-    let id = setInterval(frame, 10);
+    let id = setInterval(frame, 5);
     function frame() {
       if (i === str.length) clearInterval(id);
       else {
         tmp = tmp + str[i];
-        setDictionary(tmp);
+        setParagraph(tmp);
         i++;
       }
     }
@@ -64,11 +64,11 @@ function Home({ colors }) {
               colors={colors}
             />
           )}
-          <p className="lg:text-lg ">{dictionary}</p>
+          <p className="lg:text-lg min-h-[111px]">{paragraph}</p>
           <ReusableButton
             initial={{ y: -10, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            transition={{ duration: 0.8, delay: 2.4 }}
+            transition={{ duration: 1, delay: 1.6 }}
             className={
               "w-full md:w-[264px] height h-[68px] my-[40px] text-white"
             }

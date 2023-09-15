@@ -65,12 +65,15 @@ function ServicesItem({ elem, colors }) {
         >
           <FaArrowLeft
             onMouseEnter={() => {
-              setScale(30);
-              setSpanOpacity(2);
-              setBtnScale(1.1);
-              spanBgColor == colors.main && elem.bBgColor == colors.gray
-                ? setArrowColor(colors.dark)
-                : setArrowColor(spanBgColor);
+              const x = window.matchMedia("(hover: hover)");
+              if (x.matches) {
+                setScale(30);
+                setSpanOpacity(2);
+                setBtnScale(1.1);
+                spanBgColor == colors.main && elem.bBgColor == colors.gray
+                  ? setArrowColor(colors.dark)
+                  : setArrowColor(spanBgColor);
+              }
             }}
             onMouseLeave={() => {
               setScale(1);
