@@ -24,9 +24,9 @@ function Footer({ colors }) {
           <li className="lg:underline cursor-pointer">Pricing</li>
         </ul>
         <div className="hidden lg:flex justify-center gap-4">
-          <LinkedIn className="cursor-pointer" />
-          <Facebook className="cursor-pointer" />
-          <Twitter className="cursor-pointer" />
+          <LinkedIn className="cursor-pointer fill-white hover:fill-[#B9FF66] duration-300" />
+          <Facebook className="cursor-pointer fill-white hover:fill-[#B9FF66] duration-300" />
+          <Twitter className="cursor-pointer fill-white hover:fill-[#B9FF66] duration-300" />
         </div>
       </div>
       <div className="w-full lg:w-[90%] lg:h-[190px] flex flex-col items-center gap-8 lg:gap-0 lg:flex-row lg:justify-between">
@@ -66,9 +66,9 @@ function Footer({ colors }) {
           />
         </form>
         <div className="flex justify-center gap-4 lg:hidden">
-          <LinkedIn className="cursor-pointer" />
-          <Facebook className="cursor-pointer" />
-          <Twitter className="cursor-pointer" />
+          <LinkedIn className="cursor-pointer fill-white hover:fill-[#B9FF66] duration-300" />
+          <Facebook className="cursor-pointer fill-white hover:fill-[#B9FF66] duration-300" />
+          <Twitter className="cursor-pointer fill-white hover:fill-[#B9FF66] duration-300" />
         </div>
       </div>
       <div className="w-full lg:w-[90%]">
