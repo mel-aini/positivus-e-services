@@ -45,7 +45,7 @@ function Process({ index, title, paragraph, colors }) {
           onClick={(e) => {
             let expandBtns = document.querySelectorAll(".expand-btn");
             let processBottoms = document.querySelectorAll(".process .bottom");
-            const firstPathELem = e.target.querySelector("svg path");
+            const firstPathELem = e.currentTarget.querySelector("svg path");
             expandBtns.forEach((elem, index) => {
               if (
                 window
