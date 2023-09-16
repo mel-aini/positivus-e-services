@@ -1,5 +1,6 @@
-import { useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
+import { AiOutlinePlus } from "react-icons/ai";
 
 Process.propTypes = {
   index: PropTypes.string,
@@ -10,16 +11,18 @@ Process.propTypes = {
 
 function Process({ index, title, paragraph, colors }) {
   const [expand, setExpand] = useState(false);
-  const [sign, setSign] = useState("+");
   const [heightExpand, setHeightExpand] = useState("115px");
   const [bgColor, setBgColor] = useState(colors.gray);
   const [visibility, setVisibility] = useState(0);
   const divRef = useRef();
-  window.addEventListener("resize", () => {
-    expand && divRef
-      ? setHeightExpand(115 + divRef.current.offsetHeight + 25)
-      : setHeightExpand("115px");
-  });
+
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      expand && divRef
+        ? setHeightExpand(115 + divRef.current.offsetHeight + 25)
+        : setHeightExpand("115px");
+    });
+  }, []);
 
   return (
     <div
@@ -38,9 +41,11 @@ function Process({ index, title, paragraph, colors }) {
           </h1>
         </div>
         <span
-          onClick={() => {
+          style={{ backgroundColor: colors.gray }}
+          onClick={(e) => {
             let expandBtns = document.querySelectorAll(".expand-btn");
             let processBottoms = document.querySelectorAll(".process .bottom");
+            const firstPathELem = e.target.querySelector("svg path");
             expandBtns.forEach((elem, index) => {
               if (
                 window
@@ -51,24 +56,23 @@ function Process({ index, title, paragraph, colors }) {
             });
             if (expand) {
               setExpand(false);
-              setSign("+");
               setBgColor(colors.gray);
               setHeightExpand("115px");
               setVisibility(0);
+              firstPathELem.style.rotate = "0deg";
             } else {
               setExpand(true);
-              setSign("-");
               setBgColor(colors.main);
               if (divRef) {
                 setHeightExpand(115 + divRef.current.offsetHeight + 25);
               }
               setVisibility(1);
+              firstPathELem.style.rotate = "90deg";
             }
           }}
           className="expand-btn cursor-pointer font-bold min-w-[35px] min-h-[35px] rounded-[50%] border-2 border-solid border-black flex justify-center items-center"
-          style={{ backgroundColor: colors.gray }}
         >
-          {sign}
+          <AiOutlinePlus className="text-xl" />
         </span>
       </div>
       <div
@@ -126,6 +130,17 @@ function OurWorkingProcess({ colors }) {
         "Lorem ipsum dolor sit amet consectetur adipisicing elit. Libero officiis neque, quas placeat deserunt dolor molestias magni expedita illum quo.",
     },
   ];
+
+  useEffect(() => {
+    const firstPathELem = document.querySelectorAll(".expand-btn svg");
+    firstPathELem.forEach((elem) => {
+      const elemPath = elem.querySelector("path");
+      elemPath.classList.add("duration-300");
+      elemPath.classList.add("origin-center");
+      elemPath.classList.add("ease-in-out");
+    });
+  }, []);
+
   return (
     <div className="w-[90%] mx-auto my-5 sm:mt-16">
       <div className="w-full flex flex-col gap-[40px] lg:flex-row justify-center lg:justify-start items-center py-[50px]">
